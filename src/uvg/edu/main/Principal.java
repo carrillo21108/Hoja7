@@ -59,6 +59,8 @@ public class Principal {
     								+ "2. Ver diccionario en frances\n"
     								+ "3. Traducir documento de texto\n"
     								+ "4. Ingresar nueva palabra a diccionario\n"
+    								+ "5. Eliminar palabra del diccionario\n"
+    								+ "6. Editar palabra del diccionario\n"
     								+ "7. Salir\n");
     	            op = scanner.nextInt();
                     error = false;
@@ -117,8 +119,81 @@ public class Principal {
         		String solicitud = palabraIngles+","+palabraEspañol+","+palabraFrances;
         		
         		System.out.println(controller.addPalabra(solicitud));
+        		filas.add(solicitud);
+        		reader.updateTxt(ruta,filas);
         		
         		break;
+        	case 5:
+        		//Solicitud de palabra a eliminar
+        		System.out.println("Ingrese la palabra que desea eliminar del diccionario.");
+        		String palabraEliminar = scanner.nextLine();
+        		
+        		String asociacion = "";
+        		
+        		boolean eliminacionValida = false;
+        		for(String fila:filas) {
+        			String[] palabras = fila.split(",");
+        			if(palabraEliminar.equals(palabras[1])) {
+        				asociacion = fila;
+        				System.out.println(controller.deletePalabra(asociacion));
+        				eliminacionValida = true;
+        			}
+        		}
+        		
+        		if(eliminacionValida) {
+        			filas.remove(asociacion);
+            		reader.updateTxt(ruta,filas);
+        		}else {
+        			System.out.println("Palabra no valida.");
+        		}
+        		
+        		break;
+        	case 6:
+        		//Solicitud de palabra a actualizar
+        		System.out.println("Ingrese la palabra que desea actualizar del diccionario.");
+        		String palabraActualizar = scanner.nextLine();
+        		
+        		//Solicitud de palabra actualizada
+        		System.out.println("Ingrese la palabra actualizada que desea agregar al diccionario.");
+        		String nuevaPalabra = scanner.nextLine();
+        		
+        		//Solicitud de traduccion al ingles
+        		System.out.println("Ingrese la traduccion al ingles de la palabra actualizada que desea agregar al diccionario.");
+        		String nuevaPalabraIngles = scanner.nextLine();
+        		
+        		//Solicitud de traduccion al frances
+        		System.out.println("Ingrese la traduccion al frances de la palabra actualizada que desea agregar al diccionario.");
+        		String nuevaPalabraFrances = scanner.nextLine();
+        		
+        		String asociacionAnterior = "";
+        		
+        		boolean actualizacionValida = false;
+        		for(String fila:filas) {
+        			String[] palabras = fila.split(",");
+        			if(palabraActualizar.equals(palabras[1])) {
+        				asociacionAnterior = fila;
+        				controller.deletePalabra(asociacionAnterior);
+        				actualizacionValida = true;
+        			}
+        		}
+        		
+        		if(actualizacionValida) {
+        			filas.remove(asociacionAnterior);
+            		reader.updateTxt(ruta,filas);
+            		
+            		String actualizado = nuevaPalabraIngles+","+nuevaPalabra+","+nuevaPalabraFrances;
+            		
+            		controller.addPalabra(actualizado);
+            		System.out.println("Palabra ("+actualizado+") actualizada con exito.");
+            		filas.add(actualizado);
+            		reader.updateTxt(ruta,filas);
+            		
+        		}else {
+        			System.out.println("Palabra no valida.");
+        		}
+        		
+        		break;
+        		
         	case 7:
         		//Salida
             	salida = true;

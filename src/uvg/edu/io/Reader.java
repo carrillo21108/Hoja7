@@ -153,5 +153,29 @@ public class Reader {
         return null;
 
     }
+    
+    public void updateTxt(String ruta, ArrayList<String>filas) {
+		try {
+			//Creacion de objeto de archivo
+			File file = new File(ruta);
+			
+			FileWriter fw = new FileWriter(file);
+			BufferedWriter bw = new BufferedWriter(fw);
+			
+			//Creacion del contenido del archivo
+			String contenido="";
+			for(String fila:filas) {
+				contenido += fila+"\n";
+			}
+			
+			//Modificacion de todo el contenido
+			bw.write(contenido);
+			bw.close();
+			
+		}catch(Exception e) {
+			System.out.println("Error al actualizar el archivo.");
+			e.printStackTrace();
+		}
+	}
 
 }

@@ -112,4 +112,22 @@ public class DictionaryController {
 		return "Nueva palabra ("+solicitud+") agregada con exito.";
 	}
 	
+	public String deletePalabra(String asociacion) {
+		String resultado = "";
+		String[]palabras = asociacion.split(",");
+		String valueIngles = btsIngles.find(palabras[0]);
+		String valueFrances = btsFrances.find(palabras[2]);
+		
+		if(valueIngles.equals(valueFrances)) {
+			btsIngles.delete(palabras[0]);
+			btsFrances.delete(palabras[2]);
+			
+			resultado = "La asociacion ("+asociacion+") ha sido eliminada con exito.";
+		}else {
+			resultado = "Asociacion invalida.";
+		}
+		
+		return resultado;
+	}
+	
 }
