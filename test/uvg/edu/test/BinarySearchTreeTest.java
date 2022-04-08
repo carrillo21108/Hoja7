@@ -37,5 +37,23 @@ class BinarySearchTreeTest {
 		}
 		assertEquals(valorEsperado, valorRecibido);	
 	}
+	
+	@Test
+	void deleteTest() {
+		String valorEsperado = "(dog, perro)\n(homework, tarea)\n(house, casa)\n(town, pueblo)\n(woman, mujer)\n";
+		String valorRecibido = "";
+		arbol.insert("yes", "si");
+		arbol.insert("homework", "tarea");
+		arbol.insert("dog", "perro");
+		arbol.insert("house", "casa");
+		arbol.insert("woman", "mujer");
+		arbol.insert("town", "pueblo");
+		arbol.delete("yes");
+		ArrayList<String> listado = arbol.getElements();
+		for(String asociacion:listado) {
+			valorRecibido+=asociacion+"\n";
+		}
+		assertEquals(valorEsperado, valorRecibido);	
+	}
 
 }
