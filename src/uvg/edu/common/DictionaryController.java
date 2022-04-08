@@ -69,6 +69,7 @@ public class DictionaryController {
 		int count = 0;
 		
 		for(String palabra:palabras) {
+			palabra = palabra.toLowerCase();
 			if(count!=0) {
 				resultado += " ";
 			}
@@ -101,6 +102,14 @@ public class DictionaryController {
 		}
 		
 		return resultado;
+	}
+	
+	public String addPalabra(String solicitud) {
+		String[]palabras = solicitud.split(",");
+		btsIngles.insert(palabras[0].toLowerCase(), palabras[1].toLowerCase());
+		btsFrances.insert(palabras[2].toLowerCase(), palabras[1].toLowerCase());
+		
+		return "Nueva palabra ("+solicitud+") agregada con exito.";
 	}
 	
 }

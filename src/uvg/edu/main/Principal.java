@@ -53,11 +53,12 @@ public class Principal {
                 //Verificacion de entrada de las opciones del menu
                 try{
                     //Solicitud de opcion de menu
-                	System.out.println("Elija la opcion que necesite ejecutar");
+                	System.out.println("\nElija la opcion que necesite ejecutar");
     	            //Opciones del menú
     				System.out.println("1. Ver diccionario en ingles\n"
     								+ "2. Ver diccionario en frances\n"
     								+ "3. Traducir documento de texto\n"
+    								+ "4. Ingresar nueva palabra a diccionario\n"
     								+ "7. Salir\n");
     	            op = scanner.nextInt();
                     error = false;
@@ -74,7 +75,6 @@ public class Principal {
         	
         	switch(op){
         	case 1:
-        		System.out.println("--OPCION 1--");
         		String resultBtsIngles = controller.listBtsIngles();
         		if(!resultBtsIngles.equals(null)) {
         			System.out.println(resultBtsIngles);
@@ -92,13 +92,31 @@ public class Principal {
         		break;
         	case 3:
         		//Solicitud de la ruta del archivo. (ejemplo: C:\Users\Brian Carrillo\OneDrive\Desktop\UVG\3er semestre\Algoritmos y Estructuras de Datos\HDT2\diccionario.txt)
-        		System.out.println("Ingrese la ruta en la que se encuentra el archivo .txt a escanear con el diccionario de palabras.");
+        		System.out.println("Ingrese la ruta en la que se encuentra el archivo .txt a escanear con el texto a traducir.");
         		String rutaParagraph = scanner.nextLine();
         		
         		ArrayList<String>resultado = reader.scanParagraph(rutaParagraph);
         		String translation = controller.translateText(resultado);
         		
-        		System.out.println(translation+"\n");
+        		System.out.println(translation);
+        		
+        		break;
+        	case 4:
+        		//Solicitud de nueva palabra
+        		System.out.println("Ingrese la palabra que desea agregar al diccionario.");
+        		String palabraEspañol = scanner.nextLine();
+        		
+        		//Solicitud de traduccion al ingles
+        		System.out.println("Ingrese la traduccion al ingles de la palabra que desea agregar al diccionario.");
+        		String palabraIngles = scanner.nextLine();
+        		
+        		//Solicitud de traduccion al frances
+        		System.out.println("Ingrese la traduccion al frances de la palabra que desea agregar al diccionario.");
+        		String palabraFrances = scanner.nextLine();
+        		
+        		String solicitud = palabraIngles+","+palabraEspañol+","+palabraFrances;
+        		
+        		System.out.println(controller.addPalabra(solicitud));
         		
         		break;
         	case 7:
