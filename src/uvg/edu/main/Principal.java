@@ -1,5 +1,10 @@
+
 /**
- * 
+ * Clase Principal
+ * @author Brian Carrillo
+ *
+ * En esta clase se maneja el metodo main que permite la ejecucion del 
+ * programa. Desde el metodo main se ejecutan los metodos del programa.
  */
 package uvg.edu.main;
 

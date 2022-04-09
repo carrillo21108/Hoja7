@@ -1,5 +1,9 @@
 /**
- * 
+ * Clase BinarySearchTree
+ * @author Brian Carrillo
+ *
+ * En esta clase se manejan las operaciones
+ * del arbol de asociaciones.
  */
 package uvg.edu.structures;
 

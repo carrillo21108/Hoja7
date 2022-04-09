@@ -1,5 +1,10 @@
 /**
- * 
+ * Clase DictionaryController
+ * @author Brian Carrillo
+ *
+ * En esta clase se manejan las acciones
+ * del controlador de los diccionarios ingles
+ * y frances.
  */
 package uvg.edu.common;
 

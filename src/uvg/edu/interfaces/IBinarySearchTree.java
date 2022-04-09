@@ -1,5 +1,9 @@
 /**
- * 
+ * Interfaz IBinarySearchTree
+ * @author Brian Carrillo
+ *
+ * En esta interfaz se definen las operaciones
+ * de los BTS.
  */
 package uvg.edu.interfaces;
 

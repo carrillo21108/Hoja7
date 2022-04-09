@@ -1,3 +1,10 @@
+/**
+ * Clase StringComparator
+ * @author Brian Carrillo
+ *
+ * En esta clase se comparan Strings obteniendo
+ * un valor numerico
+ */
 package uvg.edu.common;
 
 import java.util.Comparator;

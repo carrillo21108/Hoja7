@@ -1,5 +1,8 @@
 /**
- * 
+ * Clase BinarySearchTree
+ * @author Brian Carrillo
+ *
+ * En esta clase se manejan las pruebas unitarias del BTS.
  */
 package uvg.edu.test;
 

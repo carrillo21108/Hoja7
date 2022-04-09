@@ -1,5 +1,9 @@
 /**
- * 
+ * Clase Association
+ * @author Brian Carrillo
+ *
+ * En esta clase se manejan las asociaciones de
+ * diccionario
  */
 package uvg.edu.structures;
 

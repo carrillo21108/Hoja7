@@ -1,5 +1,9 @@
 /**
- * 
+ * Clase Listado
+ * @author Brian Carrillo
+ *
+ * En esta clase se maneja el listado de in order
+ * post order y pre order de los BTS
  */
 package uvg.edu.common;
 
