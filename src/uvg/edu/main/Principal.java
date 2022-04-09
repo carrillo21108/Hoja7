@@ -57,7 +57,7 @@ public class Principal {
     	            //Opciones del menú
     				System.out.println("1. Ver diccionario en ingles\n"
     								+ "2. Ver diccionario en frances\n"
-    								+ "3. Traducir documento de texto\n"
+    								+ "3. Traducir texto de documento\n"
     								+ "4. Ingresar nueva palabra a diccionario\n"
     								+ "5. Eliminar palabra del diccionario\n"
     								+ "6. Editar palabra del diccionario\n"
@@ -79,6 +79,7 @@ public class Principal {
         	case 1:
         		String resultBtsIngles = controller.listBtsIngles();
         		if(!resultBtsIngles.equals(null)) {
+        			System.out.println("--DICCIONARIO INGLES--.");
         			System.out.println(resultBtsIngles);
         		}else {
         			System.out.println("El diccionario se encuentra vacio.");
@@ -87,6 +88,7 @@ public class Principal {
         	case 2:
         		String resultBtsFrances = controller.listBtsFrances();
         		if(!resultBtsFrances.equals(null)) {
+        			System.out.println("--DICCIONARIO FRANCES--.");
         			System.out.println(resultBtsFrances);
         		}else {
         			System.out.println("El diccionario se encuentra vacio.");
@@ -105,7 +107,7 @@ public class Principal {
         		break;
         	case 4:
         		//Solicitud de nueva palabra
-        		System.out.println("Ingrese la palabra que desea agregar al diccionario.");
+        		System.out.println("Ingrese la palabra en español que desea agregar al diccionario.");
         		String palabraEspañol = scanner.nextLine();
         		
         		//Solicitud de traduccion al ingles
@@ -125,7 +127,7 @@ public class Principal {
         		break;
         	case 5:
         		//Solicitud de palabra a eliminar
-        		System.out.println("Ingrese la palabra que desea eliminar del diccionario.");
+        		System.out.println("Ingrese la palabra en español que desea eliminar del diccionario.");
         		String palabraEliminar = scanner.nextLine();
         		
         		String asociacion = "";
@@ -150,11 +152,11 @@ public class Principal {
         		break;
         	case 6:
         		//Solicitud de palabra a actualizar
-        		System.out.println("Ingrese la palabra que desea actualizar del diccionario.");
+        		System.out.println("Ingrese la palabra en español que desea actualizar del diccionario.");
         		String palabraActualizar = scanner.nextLine();
         		
         		//Solicitud de palabra actualizada
-        		System.out.println("Ingrese la palabra actualizada que desea agregar al diccionario.");
+        		System.out.println("Ingrese la palabra en español actualizada que desea agregar al diccionario.");
         		String nuevaPalabra = scanner.nextLine();
         		
         		//Solicitud de traduccion al ingles
@@ -189,7 +191,7 @@ public class Principal {
             		reader.updateTxt(ruta,filas);
             		
         		}else {
-        			System.out.println("Palabra no valida.");
+        			System.out.println("Palabra actual no valida.");
         		}
         		
         		break;

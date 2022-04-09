@@ -23,7 +23,7 @@ class BinarySearchTreeTest {
 
 	@Test
 	void insertTest() {
-		String valorEsperado = "dog, perro\nhomework, tarea\nhouse, casa\ntown, pueblo\nwoman, mujer\nyes, si\n";
+		String valorEsperado = "(dog, perro)\n(homework, tarea)\n(house, casa)\n(town, pueblo)\n(woman, mujer)\n(yes, si)\n";
 		String valorRecibido = "";
 		arbol.insert("yes", "si");
 		arbol.insert("homework", "tarea");
@@ -53,6 +53,21 @@ class BinarySearchTreeTest {
 		for(String asociacion:listado) {
 			valorRecibido+=asociacion+"\n";
 		}
+		assertEquals(valorEsperado, valorRecibido);	
+	}
+	
+	@Test
+	void findTest() {
+		String valorEsperado = "tarea";
+		String valorRecibido = "";
+		arbol.insert("yes", "si");
+		arbol.insert("homework", "tarea");
+		arbol.insert("dog", "perro");
+		arbol.insert("house", "casa");
+		arbol.insert("woman", "mujer");
+		arbol.insert("town", "pueblo");
+		valorRecibido = arbol.find("homework");
+		
 		assertEquals(valorEsperado, valorRecibido);	
 	}
 
